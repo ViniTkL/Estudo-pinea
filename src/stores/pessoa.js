@@ -6,15 +6,22 @@ export const usePessoaStore = defineStore('pessoa', () => {
     let cpf = ref('');
     let email = ref('');
 
+    let pessoas = ref([])
+
     const doubleCount = computed(() => count.value * 2)
     function increment() {
       count.value++
     }
 
-    function setEmail(newEmail) {
-        email.value = email;
+    function addPessoa() {
+      const newPessoa = { nome: nome.value, cpf: cpf.value, email: email.value }
+
+      pessoas.value.push(newPessoa)
+
+      console.log(pessoas.value);
     }
-  
-    return { email, cpf, nome , doubleCount, setEmail }
+
+   
+    return { email, cpf, nome, pessoas, addPessoa }
   })
   

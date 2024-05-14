@@ -1,5 +1,8 @@
 <script setup>
 import VLinha from '@/components/VLinha.vue'
+import { usePessoaStore } from '@/stores/pessoa';
+
+const store = usePessoaStore();
 </script>
 
 <template>
@@ -10,7 +13,7 @@ import VLinha from '@/components/VLinha.vue'
         <th>EMAIL</th>
     </thead>
     <tbody>
-        <VLinha />
+        <VLinha v-for="pessoa in store.pessoas" :pessoa="pessoa" />
     </tbody>
 </table>
 </template>
